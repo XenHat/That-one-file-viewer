@@ -45,10 +45,10 @@ get "/:id/?" do
   if @data[:id] =~ invalid_chars
     status 404
   else
-  return @data unless @data.is_a?(Hash)
-  status 200
-  haml :show, locals: {type: :show, object: @data[:type]}
-end
+    return @data unless @data.is_a?(Hash)
+    status 200
+    haml :show, locals: {type: :show, object: @data[:type]}
+  end
 end
 
 get "/:id/download/?" do
@@ -56,10 +56,10 @@ get "/:id/download/?" do
   if data[:id] =~ invalid_chars
     status 404
   else
-  return data unless data.is_a?(Hash)
-  status 200
-  send_file data[:file], disposition: :attachment, type: "application/octet-stream"
-end
+    return data unless data.is_a?(Hash)
+    status 200
+    send_file data[:file], disposition: :attachment, type: "application/octet-stream"
+  end
 end
 
 get "/scss/:style.scss" do
